@@ -24,6 +24,11 @@ Author: Christoph Daniel Miksche (m5e.de)
   ```
   pip install BeautifulSoup4 lxml mechanize
   ```
+  Alternatively if your using Debian:
+
+  ```
+  apt install python-beautifulsoup python-mechanize python-lxml
+  ```
 
 2. Then clone the git repository.
 
