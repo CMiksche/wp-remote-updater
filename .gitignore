@@ -1,0 +1,4 @@
+# No complied files
+*.pyc
+searchlib/*.pyc
+searchlib/lib/*.pyc
