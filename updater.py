@@ -35,14 +35,16 @@ if (getGenerator(settings.refsite) > getGenerator(settings.site)):
 
     # Upload to the FTP-Directory
     myFTP = ftplib.FTP(settings.ftpserver, settings.ftpusername, settings.ftppassword)
+
+    # Change to FTP WordPress dir
+    myFTP.cwd('/'+settings.ftpworkdir)
+
     myPath = os.getcwd()+'/wordpress/'
     def uploadThis(path):
         # List of local files
         files = os.listdir(path)
         # Change to local dir
         os.chdir(path)
-        # Change to FTP WordPress dir
-        myFTP.cwd('/'+settings.ftpworkdir)
         for f in files:
             if os.path.isfile(f):
                 fh = open(f, 'rb')
