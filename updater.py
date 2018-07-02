@@ -42,7 +42,7 @@ if (getGenerator(settings.refsite) > getGenerator(settings.site)):
         # Change to local dir
         os.chdir(path)
         # Change to FTP WordPress dir
-        myFTP.cwd(ftpworkdir)
+        myFTP.cwd(settings.ftpworkdir)
         for f in files:
             if os.path.isfile(f):
                 fh = open(f, 'rb')
