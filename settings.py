@@ -1,7 +1,7 @@
 '''
 WP Remote Updater
 
-Copyright 2017 Christoph Daniel Miksche
+Copyright 2017, 2018 Christoph Daniel Miksche
 All rights reserved.
 
 License: GNU General Public License
@@ -14,9 +14,10 @@ refsite = 'http://'
 wpurl = 'https://wordpress.org/latest.zip'
 
 # FTP settings
-ftpserver = ''
-ftpusername = ''
-ftppassword = ''
+ftpserver = ''              # Your FTP server
+ftpusername = ''            # Your FTP username
+ftppassword = ''            # Your FTP password
+ftpworkdir  = ''            # The folder with WordPress (WordPress Root Dir)
 
 # WordPress settings
 wpusername = ''
