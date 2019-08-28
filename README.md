@@ -5,6 +5,7 @@ Gets the version of a reference site and update the wordpress site, if the refer
 It downloads the latest wordpress version and upload it via ftp. After login, it clicks on the "Update WordPress Database" link.
 
 ## Procedure
+
 * Checks if the reference site has a higher version.
 * Download the new wp version.
 * Unzip the wordpress zip file.
@@ -13,28 +14,36 @@ It downloads the latest wordpress version and upload it via ftp. After login, it
 * Update the wordpress database.
 
 ## General Information
+
 License: GNU General Public License
 
 Author: Christoph Daniel Miksche (m5e.de)
 
 ## Installation
 
-1. Use the following command to install all dependencies.
+Create a settings.ini file on your system. Example:
 
-  ```
-  pip install pipenv
-  pipenv install
-  ```
-  Alternatively if your using Debian:
+```
+[WordPress]
+site=http://
+refsite=http://
+wpurl=https://wordpress.org/latest.zip
+username=
+password=
 
-  ```
-  apt install python-beautifulsoup python-mechanize python-lxml
-  ```
+[FTP]
+server=
+username=
+password=
+workdir=
+```
 
-2. Then clone the git repository.
+Use the following command to install wp-remote-updater:
 
-3. After that, please change the variables in the settings.py file.
+```
+pip install wp-remote-updater
+```
 
-4. Enter the command `python updater.py` in your commandline.
+Enter the command `wp-remote-updater --settings=/path/to/settings.ini` in your commandline.
 
-5. If you want to schedule your updates, edit your /etc/crontab file.
+If you want to schedule your updates, edit your /etc/crontab file.

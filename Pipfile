@@ -10,6 +10,8 @@ beautifulsoup4 = "*"
 lxml = "*"
 mechanize = "*"
 wronnay-search-lib = "*"
+configparser = "*"
+fire = "*"
 
 [requires]
 python_version = "3.7"

@@ -7,12 +7,13 @@ All rights reserved.
 License: GNU General Public License
 '''
 from wronnay_search_lib.crawler import Crawler
-import settings
 import zipfile
 import ftplib
 import os
 import shutil
 import mechanize
+import configparser
+import fire
 from urllib.request import urlopen
 
 
@@ -22,11 +23,14 @@ def getGenerator(site):
     return meta['generator']
 
 
-def update():
-    if (getGenerator(settings.refsite) > getGenerator(settings.site)):
+def update(settings='settings.ini'):
+    # Config
+    config = configparser.ConfigParser()
+    config.read(settings)
+    if (getGenerator(config.get('WordPress', 'refsite')) > getGenerator(config.get('WordPress', 'site'))):
 
         # Download Wordpress
-        f = urlopen(settings.wpurl)
+        f = urlopen(config.get('WordPress', 'wpurl'))
         data = f.read()
         with open("wp.zip", "wb") as code:
             code.write(data)
@@ -38,10 +42,10 @@ def update():
         os.remove('wp.zip')
 
         # Upload to the FTP-Directory
-        myFTP = ftplib.FTP(settings.ftpserver, settings.ftpusername, settings.ftppassword)
+        myFTP = ftplib.FTP(config.get('FTP', 'server'), config.get('FTP', 'username'), config.get('FTP', 'password'))
 
         # Change to FTP WordPress dir
-        myFTP.cwd('/'+settings.ftpworkdir)
+        myFTP.cwd('/'+config.get('FTP', 'workdir'))
 
         myPath = os.getcwd()+'/wordpress/'
         def uploadThis(path):
@@ -72,8 +76,8 @@ def update():
         browser = mechanize.Browser()
         browser.open(settings.site+'/wp-login.php')
         browser.select_form(nr = 0)
-        browser.form['user_login'] = settings.wpusername
-        browser.form['user_pass'] = settings.wppassword
+        browser.form['user_login'] = config.get('WordPress', 'username')
+        browser.form['user_pass'] = config.get('WordPress', 'password')
         browser.submit()
 
         # Start DB Update
@@ -88,4 +92,10 @@ def update():
         except:
             pass
 
-update()
+
+def main():
+    fire.Fire(update)
+
+
+if __name__ == '__main__':
+  main()
