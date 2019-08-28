@@ -22,7 +22,8 @@ Author: Christoph Daniel Miksche (m5e.de)
 1. Use the following command to install all dependencies.
 
   ```
-  pip install BeautifulSoup4 lxml mechanize
+  pip install pipenv
+  pipenv install
   ```
   Alternatively if your using Debian:
 
