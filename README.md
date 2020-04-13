@@ -1,5 +1,7 @@
 # WordPress Remote Updater
 
+[![Build Status](https://travis-ci.org/CMiksche/wp-remote-updater.svg?branch=master)](https://travis-ci.org/CMiksche/wp-remote-updater)
+
 Gets the version of a reference site and update the wordpress site, if the reference site has a higher version.
 
 It downloads the latest wordpress version and upload it via ftp. After login, it clicks on the "Update WordPress Database" link.
