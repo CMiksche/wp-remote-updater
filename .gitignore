@@ -2,3 +2,4 @@
 *.pyc
 searchlib/*.pyc
 searchlib/lib/*.pyc
+.idea/

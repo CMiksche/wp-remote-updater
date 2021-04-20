@@ -1,6 +1,6 @@
 # WordPress Remote Updater
 
-[![Build Status](https://travis-ci.org/CMiksche/wp-remote-updater.svg?branch=master)](https://travis-ci.org/CMiksche/wp-remote-updater)
+[![Build Status](https://cloud.drone.io/api/badges/CMiksche/wp-remote-updater/status.svg?ref=refs/heads/feat/python3)](https://cloud.drone.io/CMiksche/wp-remote-updater)
 
 Gets the version of a reference site and update the wordpress site, if the reference site has a higher version.
 
